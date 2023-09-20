@@ -27,21 +27,60 @@
     </header>
     <!-- Your content goes here -->
     <div class="container">
-        
-
-
-
-    </div>
-
-
-    <footer>
-        <div class="footer-content">
-            <span class="site-name">IT Jugaar</span>
+        <h1 class="blogPageHeading">Blog Titles List</h1>
+    <!-- Search Field -->
+        <div class="searchField">
+            <label for="search">Search Topics:</label>
+            <input type="text" id="search" onkeyup="searchBlogTitles()" placeholder="Search...">
         </div>
-        <div class="footer-info">
-            &copy; IT Jugaar. All Rights Reserved.
-        </div>
-    </footer>
+    <!-- Blog Titles Table -->
+    <table id="blogTable">
+        <tr>
+            <th>Topics</th>
+        </tr>
+        <tr>
+            <td><a class="row-link" href="#blog2.html">Blog Post 2</a></td>
+        </tr>
+        <tr>
+            <td><a class="row-link" href="#blog2.html">Blog Post 2</a></td>
+        </tr>
+        <tr>
+            <td><a class="row-link" href="#blog3.html">Blog Post 3</a></td>
+        </tr>
+        <!-- Add more rows for additional blog titles -->
+    </table>
 
+    <script>
+        // JavaScript function to filter blog titles based on user input
+        function searchBlogTitles() {
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("search");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("blogTable");
+            tr = table.getElementsByTagName("tr");
+            
+            for (i = 1; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[0];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
+</div>
+
+
+<footer>
+<div class="footer-content">
+<span class="site-name">IT Jugaar</span>
+</div>
+<div class="footer-info">&copy; IT Jugaar. All Rights Reserved.
+</div>
+</footer>
 </body>
 </html>
